@@ -1,40 +1,73 @@
-This controller is designed to solve a maze by combining basic robotic behaviors using a state machine. It uses the e-puck robot equipped with distance sensors, wheel encoders, and motors. The robot performs wall-following, turns, and curved maneuvers to navigate through the maze.
+# Maze Solver Controller for e-puck Robot
 
-Key Components
--State Machine:
-1.follow_wall: Default behavior to follow the wall on the left side.
-2.turn_-90: Turns left in place when an obstacle is detected ahead.
-3.curve_+90: Makes a smooth right turn when the wall ends.
+This project implements a basic **maze-solving behavior** for the **e-puck robot** in the **Webots simulator**. The robot uses a **finite state machine** and a **wall-following algorithm** to navigate through a maze using its distance sensors.
 
--Sensors Used:
-ps5, ps6: Detect the left and front-left distances.
-ps0, ps7: Detect obstacles in front.
+## 👨‍💻 Author
 
-Encoders: Measure wheel rotation to calculate speed.
+- Felipe N. Martins  
+- Date: 05-MAR-2024  
 
--Control Logic:
-Linear and angular velocities are computed based on sensor input.
+---
 
-A proportional controller (gains kd, kd2) adjusts the robot’s heading to follow the wall.
+## 🧠 Behavior Overview
 
-Speeds are converted to wheel commands using a kinematic model.
+The robot operates based on 3 main states:
 
-Functions
-get_wheels_speed(...): Computes wheel angular speeds from encoder readings.
+1. **`follow_wall`** – Follows the wall on the left side using proximity sensors.
+2. **`turn_-90`** – Performs an in-place 90° left turn when an obstacle is ahead.
+3. **`curve_+90`** – Makes a smooth right curve when the left wall disappears.
 
-get_robot_speeds(...): Converts wheel speeds to linear and angular robot speeds.
+State transitions are controlled using sensor values and a step counter.
 
-wheel_speed_commands(...): Converts desired linear/angular speeds to individual wheel speeds.
+---
 
-follow_wall_to_left(...): Uses a control law to maintain a safe and consistent distance from the left wall.
+## 🧩 Sensor & Actuator Setup
 
-Behavior Transition Conditions
-From follow_wall → curve_+90: Wall disappears on the left.
+- **Proximity Sensors (ps0–ps7):**
+  - `ps5`: Left wall sensor
+  - `ps6`: Front-left diagonal sensor
+  - `ps0`, `ps7`: Front sensors to detect obstacles
 
-From follow_wall → turn_-90: Obstacle detected in front.
+- **Encoders:**
+  - Left and right wheel encoders for calculating wheel speeds.
 
-From turning states → follow_wall: After a fixed number of steps (via counter).
+- **Motors:**
+  - Left and right wheel motors with velocity control.
 
-Debugging Output
-The current state and selected proximity sensor readings are printed each loop cycle to assist with debugging.
+---
 
+## ⚙️ Key Parameters
+
+- `R = 0.0205`: Wheel radius (meters)
+- `D = 0.0520`: Distance between wheels (meters)
+- `kd`, `kd2`: Controller gains for wall-following
+- `d_desired = 200`: Desired sensor value for distance to wall
+
+---
+
+## 🧮 Functions
+
+- `get_wheels_speed(...)` – Calculates wheel angular speed from encoders
+- `get_robot_speeds(...)` – Computes linear and angular speed of robot
+- `wheel_speed_commands(...)` – Converts desired speeds to motor commands
+- `follow_wall_to_left(...)` – Wall-following control law using proximity sensors
+
+---
+
+## 🔁 State Transitions
+
+| Current State   | Condition                                  | Next State     |
+|-----------------|--------------------------------------------|----------------|
+| `follow_wall`   | Wall disappears (ps5, ps6 low)             | `curve_+90`    |
+| `follow_wall`   | Obstacle ahead (ps0 or ps7 high)           | `turn_-90`     |
+| `turn_-90`      | Counter reaches limit                      | `follow_wall`  |
+| `curve_+90`     | Counter reaches limit                      | `follow_wall`  |
+
+---
+
+## 🐞 Debugging Output
+
+The script prints useful information each timestep:
+
+```plaintext
+Current state = follow_wall, ps = 310.00, 310.00, 40.00, 60.00
