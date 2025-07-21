@@ -1,0 +1,139 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/apartment_structure/protos/Wall.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.45735563322222195 0.40159215108742213 -0.7934415976900111 1.9245702120347412
+  position 0.003899293609363204 2.8903574291454133 4.753176530418037
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  translation -0.74 -0.15303 -8.17124e-14
+  name "rectangle arena(1)"
+  floorSize 3 3
+  wallHeight 0.2
+}
+Wall {
+  translation -1.88904 0.631143 -3.90799e-14
+  name "wall(5)"
+  size 0.7 0.005 0.2
+}
+Wall {
+  translation -1.67104 -0.897753 -3.90799e-14
+  name "wall(17)"
+  size 0.7 0.005 0.2
+}
+Wall {
+  translation 0.0516279 0.338019 -3.19744e-14
+  name "wall(16)"
+  size 1 0.005 0.2
+}
+Wall {
+  translation 0.265078 -0.894665 -3.59712e-14
+  name "wall(12)"
+  size 1 0.005 0.2
+}
+Wall {
+  translation 0.295982 -0.129717 -3.19744e-14
+  name "wall(18)"
+  size 1 0.005 0.2
+}
+Wall {
+  translation 0.42165 0.841426 -3.19744e-14
+  name "wall(3)"
+  size 0.7 0.005 0.2
+}
+Wall {
+  translation -0.192278 0.592462 -3.19744e-14
+  name "wall(1)"
+  size 0.5 0.005 0.2
+}
+Wall {
+  translation 0.254792 1.09885 -1.68754e-14
+  name "wall(6)"
+  size 1 0.005 0.2
+}
+Wall {
+  translation 0.254792 1.09885 -1.68754e-14
+  name "wall(4)"
+  size 1 0.005 0.2
+}
+Wall {
+  translation -0.497526 -1.4069 -1.68754e-14
+  name "wall(7)"
+  size 2.5 0.005 0.2
+}
+Wall {
+  translation -1.24531 1.09513 3.20632e-13
+  rotation 0 0 1 5.307156870259904e-06
+  name "wall(8)"
+  size 2 0.005 0.2
+}
+Wall {
+  translation -1.26126 0.330914 3.33955e-13
+  rotation 0 0 1 1.5708
+  name "wall(13)"
+  size 2 0.005 0.2
+}
+Wall {
+  translation 0.376081 -0.425992 3.33955e-13
+  rotation 0 0 1 1.5708
+  name "wall(10)"
+  size 2 0.005 0.2
+}
+Wall {
+  translation -1.71654 -0.634441 3.33955e-13
+  rotation 0 0 1 1.5708
+  name "wall(11)"
+  size 2 0.005 0.2
+}
+Wall {
+  translation -0.494333 -0.634545 7.99293e-15
+  rotation 0 0 1 -1.5707953071795862
+  name "wall(14)"
+  size 1 0.005 0.2
+}
+Wall {
+  translation -0.542417 -0.465734 1.71418e-13
+  rotation 0 0 -1 -5.307179586466759e-06
+  name "wall(15)"
+  size 1 0.005 0.2
+}
+Wall {
+  translation -0.776619 -0.381547 -1.68754e-14
+  rotation 0 0 1 1.5708
+  name "wall(9)"
+  size 2.5 0.005 0.2
+}
+Wall {
+  translation -0.239784 0.85781 -0.03
+  rotation 0 0 1 1.5708
+  name "wall(2)"
+  size 0.5 0.005 0.2
+}
+E-puck {
+  hidden position_0_0 824.5978187827523
+  hidden position_0_1 1255.1835414519664
+  hidden linearVelocity_0 -0.0007871836545753197 -1.2725563007092137e-06 0.001708597911145895
+  hidden angularVelocity_0 5.760027276075744e-05 -0.002351419462651075 -0.4454058663667789
+  hidden translation_1 0 0.025999999999999985 0.02
+  hidden rotation_1 0 -1 0 4.7826417649531585
+  hidden linearVelocity_1 0.0030289815970391634 -0.01093099159260571 0.0017707367661563887
+  hidden angularVelocity_1 0.5987422540937999 0.20678261836499992 -0.44502893112658726
+  hidden translation_2 0 -0.025999999999999985 0.02
+  hidden rotation_2 0 -1 0 1.4535199839508472
+  hidden linearVelocity_2 -0.004614528898717228 0.010936361471719688 0.001647717024669768
+  hidden angularVelocity_2 -0.5985530304151837 -0.21169165946487076 -0.44650162954110034
+  translation 0.7232523763989518 0.9327469009981678 -0.0002700631169052659
+  rotation -0.0009194874483771001 -0.002352484383948836 -0.9999968101749402 1.2421090600887343
+  controller "maze_control"
+}
