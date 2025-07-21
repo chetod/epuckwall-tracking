@@ -69,3 +69,9 @@ The script prints useful information each timestep:
 
 ```plaintext
 Current state = follow_wall, ps = 310.00, 310.00, 40.00, 60.00
+```
+## Author by psu student id
+6710110435
+6710110580
+6710110658
+6710110520
