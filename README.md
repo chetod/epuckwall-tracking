@@ -3,6 +3,9 @@
 This project implements a basic **maze-solving behavior** for the **e-puck robot** in the **Webots simulator**. The robot uses a **finite state machine** and a **wall-following algorithm** to navigate through a maze using its distance sensors.
 
 ---
+## simulation maze
+<img width="640" height="631" alt="image" src="https://github.com/user-attachments/assets/cddf6a8f-cc28-4e0f-9468-f5aadab96936" />
+
 
 ## 🧠 Behavior Overview
 
